@@ -11,20 +11,57 @@ let wrapPicture = document.querySelector('.sizes-wrapper'),
 					"sizes-2",
 					"sizes-3",
 					"sizes-4"
-				];
+				],
+	count = 0;
 
-for ( let i = 0; i < img.length; i++ ) {
-	img[i].addEventListener('mouseover', function () {
-		img[i].style.position = 'relative';
-		img[i].style.zIndex = '100';
-		img[i].src = `img/${imgHover[i]}.png`;
+if (isTouchDevice() === true) {	
 
-	});
+    wrapPicture.addEventListener('touchstart', function(event) {
+        
+        let target = event.target;
+    	event.preventDefault();
+        
+    	if (target.tagName == 'IMG') {
+    	    for ( let i = 0; i < img.length; i++ ) {
+    	        if (target == img[i]) {
+	    		    showPic(i);
+	    		    break;
+    	        }
+    	    }
+    	} else {
+    	    imgDefault.forEach(function(elem) {
+    	        hidePic(elem);
+    	    });
+    	}
+    }, false);
 
-	img[i].addEventListener('mouseout', function (){
-		img[i].style.position = '';
-		img[i].style.zIndex = '';
-		img[i].src = `img/${imgDefault[i]}.png`;
-	});
-	
+} else {
+
+	for ( let i = 0; i < img.length; i++ ) {
+		img[i].addEventListener('mouseover', function () {
+			showPic(i);
+		});
+
+		img[i].addEventListener('mouseout', function (){
+			hidePic(i);
+		});
+	}
+    
+}
+
+
+function isTouchDevice() {
+    return true == ("ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch);
+}
+
+function showPic(b) {
+	img[b].style.position = 'relative';
+	img[b].style.zIndex = '100';
+	img[b].src = `img/${imgHover[b]}.png`;
+}
+
+function hidePic(i) {
+	img[i].style.position = '';
+	img[i].style.zIndex = '';
+	img[i].src = `img/${imgDefault[i]}.png`;
 }
