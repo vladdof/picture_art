@@ -2,15 +2,15 @@ let giftBtn = document.querySelector('.fixed-gift'),
 	giftModal = document.querySelector('.popup-gift'),
 	closeGift = giftModal.querySelector('.popup-close');
 
-console.log(giftBtn);
-console.log(giftModal);
-console.log(closeGift);
+function hideGift() {
+	giftBtn.style.display = 'flex';
+	giftModal.style.display = 'none';
+};
 
 giftBtn.addEventListener('click', function() {
 	this.style.display = 'none';
 	giftModal.style.display = 'flex';
 });
-
 
 giftModal.addEventListener('click', function(event) {
 	let target = event.target;
@@ -19,9 +19,3 @@ giftModal.addEventListener('click', function(event) {
 		hideGift();
 	};
 });
-
-
-function hideGift() {
-	giftBtn.style.display = 'flex';
-	giftModal.style.display = 'none';
-};
