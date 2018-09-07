@@ -27,23 +27,12 @@ function sliderMain() {
 		showSlidesF(slideIndex += n);
 	}
 
-	prevF.addEventListener('click', ()=> {
-		plusSlides(-1);
-	});
-
-	nextF.addEventListener('click', ()=> {
-		plusSlides(1);
-	});
-
 	function nextAuto() {
 		plusSlides(1);
 	}
 
-	window.onload = function() { // start slides before load
-	    showSlidesF();
-	    setInterval(function() { 
+	setInterval(function() { 
 	        nextAuto();
 	    },5000);
-	};
 }
 sliderMain();
