@@ -1733,8 +1733,23 @@ h4 {
   padding: 0;
   transition: .5s transform;
 }
-
 .feedback-slider-item {
+  flex: 0 0 100%;
+  display: inline-block;
+}
+
+.main-slider-box {
+  overflow: hidden;
+}
+.main-slider {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  transition: .5s transform;
+  height: 670px;
+}
+.main-slider-item {
   flex: 0 0 100%;
   display: inline-block;
 }
