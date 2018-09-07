@@ -1724,3 +1724,16 @@ h4 {
     width: 25rem;
   }
 }
+
+.feedback-slider {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  transition: .5s transform;
+  overflow: hidden;
+}
+
+.feedback-slider-item {
+  flex: 0 0 100%;
+  display: inline-block;
+}
