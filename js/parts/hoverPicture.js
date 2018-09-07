@@ -29,8 +29,8 @@ if (isTouchDevice() === true) {
     	        }
     	    }
     	} else {
-    	    imgDefault.forEach(function(elem) {
-    	        hidePic(elem);
+    	    imgDefault.forEach(function(i) {
+    	        hidePic(i);
     	    });
     	}
     }, false);

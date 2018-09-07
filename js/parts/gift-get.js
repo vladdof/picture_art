@@ -1,6 +1,5 @@
 let giftBtn = document.querySelector('.fixed-gift'),
-	giftModal = document.querySelector('.popup-gift'),
-	closeGift = giftModal.querySelector('.popup-close');
+	giftModal = document.querySelector('.popup-gift');
 
 function hideGift() {
 	giftBtn.style.display = 'flex';
@@ -19,3 +18,10 @@ giftModal.addEventListener('click', function(event) {
 		hideGift();
 	};
 });
+
+var hideGiftBtn = function() {
+	giftBtn.style.display = 'none';
+}
+var showGiftBtn = function() {
+	giftBtn.style.display = 'flex';
+}
