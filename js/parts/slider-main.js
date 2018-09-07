@@ -32,7 +32,7 @@ function sliderMain() {
 	}
 
 	setInterval(function() { 
-	        nextAuto();
-	    },5000);
+	    nextAuto();
+	},5000);
 }
 sliderMain();

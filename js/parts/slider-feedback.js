@@ -3,13 +3,10 @@ function sliderFeedback() {
 	function nextAuto() {
 		plusSlides(1);
 	}
-
-	window.onload = function() { // start slides before load
-	    showSlidesF();
-	    setInterval(function() { 
-	        nextAuto();
-	    },5000);
-	};
+	
+    setInterval(function() { 
+        nextAuto();
+    },5000);
 
 	let slideIndex = 0,
 		boxSlider = document.querySelector('.feedback-slider-box'),
