@@ -276,13 +276,14 @@ function sliderMain() {
 module.exports = sliderMain;
 },{}],9:[function(require,module,exports){
 function sort() {
-	let portfolioBox = document.getElementById('portfolio'),
+	let portfolioBox = document.querySelector('.portfolio-menu'),
 		linkItem = portfolioBox.getElementsByTagName('li'),
 		no = document.querySelector('.portfolio-no'),
 		portfolio = document.getElementsByClassName('portfolio-block');
 
 	portfolioBox.addEventListener('click', function(event) {
 		let target = event.target.className;
+		console.log(target);
 
 		for (let i = 0; i < linkItem.length; i++) {
 
@@ -290,8 +291,11 @@ function sort() {
 
 				linkItem[i].classList.add('active');
 				
+			}	else if (target == 'active') {
+
+				console.log('new new new');
 			}	else {
-				linkItem[i].classList.remove('active');	
+					linkItem[i].classList.remove('active');	
 			}
 		}
 
@@ -299,7 +303,6 @@ function sort() {
 
 		  	if (portfolio[j].classList.contains(target)) {
 		    	portfolio[j].style.display = 'block';
-		    	no.style.display = 'none';
 
 		    } else if (target == 'grandmother' || target == 'granddad') {
 				no.style.display = 'block';
@@ -307,6 +310,7 @@ function sort() {
 
 			}	else {
 		    	portfolio[j].style.display = 'none';
+		    	no.style.display = 'none';
 		    }
 		}
 	});
