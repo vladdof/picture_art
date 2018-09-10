@@ -595,14 +595,16 @@
 			<p class=p-heading>Остались вопросы?</p>
 			<h2>Получите консультацию художника!</h2>
 			<div class="col-md-10 col-md-offset-1">
-				<form action=mailer/smart.php method=POST>
+				<!-- <form action=mailer/smart.php method=POST> -->
+				<form action=#>
 					<div class=input-wrapper>
 						<input type=text name=name placeholder="Ваше имя" required>
-						<input type=text name=phone placeholder="Ваш телефон" required>
+						<input type=text name=phone placeholder="Ваш телефон" required maxlength="16">
 						<input type=text name=email placeholder="Ваш E-mail">
 						<input class=input-text name=message type=text placeholder="Задайте ваш вопрос здесь" required>
 					</div>
-					<button class="button button-order" onclick="yaCounter46630539.reachGoal('btn-consultation'); return true;">Получить консультацию</button>
+					<!-- <button class="button button-order" onclick="yaCounter46630539.reachGoal('btn-consultation'); return true;">Получить консультацию</button> -->
+					<button class="button button-order">Получить консультацию</button>
 				</form>
 			</div>
 		</div>
@@ -666,8 +668,9 @@
 				<div class=main-form>
 					<form class=form action=mailer/smart.php method=POST>
 						<input type=text name=name placeholder="Ваше имя" required>
-						<input type=text name=phone placeholder="Ваш телефон" required>
-						<button class="button button-order" onclick="yaCounter46630539.reachGoal('btn-consultation'); return true;">Получить консультацию</button>
+						<input type=text name=phone placeholder="Ваш телефон" required maxlength="16">
+						<button class="button button-order">Получить консультацию</button>
+						<!-- <button class="button button-order" onclick="yaCounter46630539.reachGoal('btn-consultation'); return true;">Получить консультацию</button> -->
 					</form>
 				</div>
 			</div>
@@ -697,7 +700,7 @@
 					<div class=main-form>
 						<div class=form>
 							<input type=text name=name placeholder="Ваше имя" required>
-							<input type=text name=phone placeholder="Ваш телефон" required>
+							<input type=text name=phone placeholder="Ваш телефон" required maxlength="16">
 							<input type=text name=email placeholder="Ваш e-mail">
 							<textarea name=message placeholder=Комментарий rows=2></textarea>
 							<button class="button button-order">Отправить дизайнеру</button>
@@ -715,7 +718,6 @@
 	<link rel="stylesheet" href="css/animate.css">
 
 	<script src="js/bundle.js"></script>
-
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	<script src="js/parts/footer-form.js"></script>
 </body>
 </html>

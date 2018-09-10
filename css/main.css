@@ -1754,3 +1754,9 @@ h4 {
   flex: 0 0 100%;
   display: inline-block;
 }
+.status {
+  text-align: center;
+  font-size: 26px;
+  color: pink;
+  margin-top: 10px;
+}
