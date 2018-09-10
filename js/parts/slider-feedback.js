@@ -44,4 +44,4 @@ function sliderFeedback() {
 		plusSlides(1);
 	});
 }
-sliderFeedback();
+module.exports = sliderFeedback;

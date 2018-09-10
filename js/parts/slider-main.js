@@ -35,4 +35,4 @@ function sliderMain() {
 	    nextAuto();
 	},5000);
 }
-sliderMain();
+module.exports = sliderMain;
