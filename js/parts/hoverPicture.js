@@ -17,7 +17,7 @@ function hoverPic() {
 
 	if (isTouchDevice() === true) {	
 
-	    wrapPicture.addEventListener('touchstart', function(event) {
+	    wrapPicture.addEventListener('mouseenter', function(event) {
 	        
 	        let target = event.target;
 	    	event.preventDefault();
