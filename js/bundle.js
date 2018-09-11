@@ -11,6 +11,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	let	sort = require('./parts/sort.js');
 	let form = require('./parts/work-form.js');
 	let calc = require('./parts/calc.js');
+	let accord = require('./parts/accordeon.js');
 
 
 	sliderMain();
@@ -23,8 +24,45 @@ window.addEventListener("DOMContentLoaded", function() {
 	sliderFeedback();
 	sort();
 	calc();
+	accord();
 });
-},{"./parts/calc.js":2,"./parts/gift-get.js":3,"./parts/hoverPicture.js":4,"./parts/more-styles.js":5,"./parts/popup-consultation.js":6,"./parts/popup-design.js":7,"./parts/slider-feedback.js":8,"./parts/slider-main.js":9,"./parts/sort.js":10,"./parts/work-form.js":11}],2:[function(require,module,exports){
+},{"./parts/accordeon.js":2,"./parts/calc.js":3,"./parts/gift-get.js":4,"./parts/hoverPicture.js":5,"./parts/more-styles.js":6,"./parts/popup-consultation.js":7,"./parts/popup-design.js":8,"./parts/slider-feedback.js":9,"./parts/slider-main.js":10,"./parts/sort.js":11,"./parts/work-form.js":12}],2:[function(require,module,exports){
+function accord() {	
+	let accordLink = document.querySelectorAll('.accordion-heading > span'),
+		accordItem = document.querySelectorAll('.accordion-block'),
+		accordBox = document.getElementById('accordion');
+
+	accordBox.addEventListener('click', function(event) {
+		let target = event.target;
+
+		if (target.tagName == 'SPAN') {
+			for (let i = 0; i < accordLink.length; i++) {
+				
+				hideAccord(i);
+				if (target == accordLink[i]) {
+					accordLink[i].classList.add('activeAccord');
+
+					showAccord(i);
+					break;
+				}
+			} 
+		}
+	});
+
+	function showAccord(b) {
+		accordItem[b].style.display = 'flex';
+	}
+
+	function hideAccord(a) {
+		for (let i = a; i < accordItem.length; i++) {
+			accordItem[i].style.display = 'none';
+			accordLink[i].classList.remove('activeAccord');
+		}
+	}
+}
+
+module.exports = accord;
+},{}],3:[function(require,module,exports){
 function calc() {
 
 	let size = document.getElementById('size'),
@@ -84,7 +122,7 @@ function calc() {
 };
 
 module.exports = calc;
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 function gift() {
 
 	let giftBtn = document.querySelector('.fixed-gift'),
@@ -143,7 +181,7 @@ function gift() {
 }
 
 module.exports = gift;
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 function hoverPic() {
 	let wrapPicture = document.querySelector('.sizes-wrapper'),
 		img = wrapPicture.getElementsByTagName('img'),
@@ -214,7 +252,7 @@ function hoverPic() {
 }
 
 module.exports = hoverPic;
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 function style() {
 	let btnStyles = document.querySelector('.button-styles'),
 		boxMore = document.getElementsByClassName('styles-2');
@@ -231,7 +269,7 @@ function style() {
 }
 
 module.exports = style;
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 function showPopup() {
 let btnConsultant = document.querySelectorAll('.button-consultation'),
 	consultantModal = document.querySelector('.popup-consultation');
@@ -266,7 +304,7 @@ let btnConsultant = document.querySelectorAll('.button-consultation'),
 // }
 }
 module.exports = showPopup;
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 function popupDesign() {
 	let btnDesign = document.getElementsByClassName('button-design'),
 		designModal = document.querySelector('.popup-design');
@@ -289,7 +327,7 @@ function popupDesign() {
 }
 
 module.exports = popupDesign;
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 // slider feedback
 function sliderFeedback() {
 	function nextAuto() {
@@ -337,7 +375,7 @@ function sliderFeedback() {
 	});
 }
 module.exports = sliderFeedback;
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 // slider main / header
 function sliderMain() {
 	let slideIndex = 0,
@@ -376,7 +414,7 @@ function sliderMain() {
 	},5000);
 }
 module.exports = sliderMain;
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 function sort() {
 	let portfolioBox = document.querySelector('.portfolio-menu'),
 		linkItem = portfolioBox.getElementsByTagName('li'),
@@ -420,7 +458,7 @@ function sort() {
 }
 
 module.exports = sort;
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 function formFooter() {
 	let message = new Object();
 	message.loading = 'Загрузка...';

@@ -1760,3 +1760,12 @@ h4 {
   color: pink;
   margin-top: 10px;
 }
+.activeAccord {
+  font-size: 2.7rem !important;
+  color: green;
+  transition: all 0.3s;
+}
+.accordion-block {
+  display: none;
+  transition: all 1s;
+}

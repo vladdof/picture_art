@@ -10,6 +10,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	let	sort = require('./parts/sort.js');
 	let form = require('./parts/work-form.js');
 	let calc = require('./parts/calc.js');
+	let accord = require('./parts/accordeon.js');
 
 
 	sliderMain();
@@ -22,4 +23,5 @@ window.addEventListener("DOMContentLoaded", function() {
 	sliderFeedback();
 	sort();
 	calc();
+	accord();
 });
