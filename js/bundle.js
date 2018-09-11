@@ -68,21 +68,22 @@ function calc() {
 	});
 
 	function clear() {
+
 		if (size.value == 0 || material.value == 0) {
 			totalValue.textContent = ' Укажите материал и размер ';
 		} else if (promocode.value == promocodeCode) {
-				total = sizeSum + materialSum + optionsSum;
-				a = total;
-				totalValue.textContent = total - promocodeCodeSum;
-			} else {
-				total = sizeSum + materialSum + optionsSum;
-				a = total;
-				totalValue.textContent = a;
-			}
+			total = sizeSum + materialSum + optionsSum;
+			a = total;
+			totalValue.textContent = total - promocodeCodeSum;
+		} else {
+			total = sizeSum + materialSum + optionsSum;
+			a = total;
+			totalValue.textContent = a;
 		}
 	}
+};
 
-calc();
+module.exports = calc;
 },{}],3:[function(require,module,exports){
 function gift() {
 
