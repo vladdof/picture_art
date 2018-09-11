@@ -3,8 +3,13 @@ let btnConsultant = document.querySelectorAll('.button-consultation'),
 	consultantModal = document.querySelector('.popup-consultation');
 
 	setTimeout(function() {
-		consultantModal.style.display = 'flex';
-	}, 10000)
+		if (document.querySelector('.popup-design').style.display == 'flex' || document.querySelector('.popup-gift').style.display == 'flex') {
+			consultantModal.style.display = 'none';
+		} else {
+			consultantModal.style.display = 'flex';
+		}
+		
+	}, 60000)
 	
 
 // function popupConsultant() {
