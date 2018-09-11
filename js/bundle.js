@@ -4,22 +4,25 @@ window.addEventListener("DOMContentLoaded", function() {
 	let gift = require('./parts/gift-get.js');
 	let	hoverPic = require('./parts/hoverPicture.js');
 	let	style = require('./parts/more-styles.js');
-	let	popupConsultant = require('./parts/popup-consultation.js');
+	let	showPopup = require('./parts/popup-consultation.js');
 	let	popupDesign = require('./parts/popup-design.js');
 	let	sliderFeedback = require('./parts/slider-feedback.js');
 	let	sliderMain = require('./parts/slider-main.js');
 	let	sort = require('./parts/sort.js');
+	let form = require('./parts/work-form.js');
 
+
+	sliderMain();
+	form();
 	gift();
 	hoverPic();
 	style();
-	popupConsultant();
+	showPopup();
 	popupDesign();
 	sliderFeedback();
-	sliderMain();
 	sort();
 });
-},{"./parts/gift-get.js":2,"./parts/hoverPicture.js":3,"./parts/more-styles.js":4,"./parts/popup-consultation.js":5,"./parts/popup-design.js":6,"./parts/slider-feedback.js":7,"./parts/slider-main.js":8,"./parts/sort.js":9}],2:[function(require,module,exports){
+},{"./parts/gift-get.js":2,"./parts/hoverPicture.js":3,"./parts/more-styles.js":4,"./parts/popup-consultation.js":5,"./parts/popup-design.js":6,"./parts/slider-feedback.js":7,"./parts/slider-main.js":8,"./parts/sort.js":9,"./parts/work-form.js":10}],2:[function(require,module,exports){
 function gift() {
 
 	let giftBtn = document.querySelector('.fixed-gift'),
@@ -86,7 +89,7 @@ function hoverPic() {
 	    	        }
 	    	    }
 	    	} else {
-	    	    imgDefault.forEach(function(i) {
+	    	    img.forEach(function(i) {
 	    	        hidePic(i);
 	    	    });
 	    	}
@@ -142,9 +145,16 @@ function style() {
 
 module.exports = style;
 },{}],5:[function(require,module,exports){
-function popupConsultant() {
-	let btnConsultant = document.querySelectorAll('.button-consultation'),
-		consultantModal = document.querySelector('.popup-consultation');
+function showPopup() {
+let btnConsultant = document.querySelectorAll('.button-consultation'),
+	consultantModal = document.querySelector('.popup-consultation');
+
+	setTimeout(function() {
+		consultantModal.style.display = 'flex';
+	}, 10000)
+	
+
+// function popupConsultant() {
 
 	for (let i = 0; i < btnConsultant.length; i++) {
 		btnConsultant[i].addEventListener('click', ()=> {
@@ -161,9 +171,9 @@ function popupConsultant() {
 			// showGiftBtn();
 		};
 	});
+// }
 }
-
-module.exports = popupConsultant;
+module.exports = showPopup;
 },{}],6:[function(require,module,exports){
 function popupDesign() {
 	let btnDesign = document.getElementsByClassName('button-design'),
@@ -318,4 +328,107 @@ function sort() {
 }
 
 module.exports = sort;
+},{}],10:[function(require,module,exports){
+function formFooter() {
+	let message = new Object();
+	message.loading = 'Загрузка...';
+	message.success = 'Спасибо! Мы скоро вам позвоним';
+	message.failure = 'Увы! Ничего не вышло...';
+
+	// find input form
+	let input = document.getElementsByTagName('input'),
+		inputPhone = document.getElementsByName('phone'),
+		// получили форму
+		sub_form = document.getElementsByTagName('form'),
+		// уведомление об отправке
+		statusMessage = document.createElement('div');
+		statusMessage.classList.add('status');
+
+	for (let i = 0; i < sub_form.length; i++) {
+		sub_form[i].addEventListener('submit', function(event) {
+			event.preventDefault();
+			sub_form[i].appendChild(statusMessage);
+
+			let request = new XMLHttpRequest();
+
+			request.open('POST', 'server.php');
+			request.setRequestHeader('Content-Type', 'application/x-www/form/urlencoded');
+
+			let formData = new FormData(sub_form[i]);
+
+			request.send(formData);
+
+			request.onreadystatechange = ()=> {
+				if (request.readyState < 4) {
+					statusMessage.innerHTML = message.loading;
+				} else if (request.readyState === 4) {
+					if (request.status == 200 && request.status < 300) {
+						statusMessage = message.success;
+						sub_form[i].textContent = statusMessage;
+					} else {
+						statusMessage.innerHTML = message.failure;
+					}
+				}
+			}
+
+			for (let i = 0; i < input.length; i++) {
+				input[i].value = '';
+			}
+		});
+    }; 
+    // конец отправки
+
+
+    // форма по типу
+   	let nameInput = document.getElementsByName('name'),
+    	messageInput = document.getElementsByName('message'),
+    	phoneInput = document.getElementsByName('phone');
+
+    // проверка на русские буквы
+    for (let i = 0; i < nameInput.length; i++) {
+    	nameInput[i].oninput = function(e) {
+    		checkInputText(e);
+    	}
+    }
+
+    for (let i = 0; i < messageInput.length; i++) {
+    	messageInput[i].oninput = function(e) {
+    		checkInputText(e);
+    	}
+    }
+
+    function checkInputText(e) {
+    	let a = e.target.value;
+    	if ( a.replace(/[^a-z|0-9]+/ig,'') ) {
+    		e.target.value = '';
+    	}
+    }
+
+    for (let i = 0; i < phoneInput.length; i++) {
+    	phoneInput[i].onfocus = function() {
+    		phoneInput[i].value = "+7";
+    	}
+
+    	phoneInput[i].onkeydown = function() {
+    		let phone = phoneInput[i].value.length;
+
+    		if (phone == 2) 
+    			this.value = this.value + '(';
+    		
+    		if (phone == 6) 
+    			this.value = this.value + ')';
+    		  
+    		if (phone == 10) 
+    			this.value = this.value + '—'; 
+    		
+    		if (phone == 13)  
+    			this.value = this.value + '—';
+    		
+    	}
+    }
+
+}
+module.exports = formFooter;
+
+
 },{}]},{},[1]);

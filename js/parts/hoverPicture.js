@@ -30,7 +30,7 @@ function hoverPic() {
 	    	        }
 	    	    }
 	    	} else {
-	    	    imgDefault.forEach(function(i) {
+	    	    img.forEach(function(i) {
 	    	        hidePic(i);
 	    	    });
 	    	}

@@ -97,5 +97,5 @@ function formFooter() {
     }
 
 }
-formFooter();
+module.exports = formFooter;
 

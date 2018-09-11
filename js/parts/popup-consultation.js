@@ -1,6 +1,13 @@
-function popupConsultant() {
-	let btnConsultant = document.querySelectorAll('.button-consultation'),
-		consultantModal = document.querySelector('.popup-consultation');
+function showPopup() {
+let btnConsultant = document.querySelectorAll('.button-consultation'),
+	consultantModal = document.querySelector('.popup-consultation');
+
+	setTimeout(function() {
+		consultantModal.style.display = 'flex';
+	}, 10000)
+	
+
+// function popupConsultant() {
 
 	for (let i = 0; i < btnConsultant.length; i++) {
 		btnConsultant[i].addEventListener('click', ()=> {
@@ -17,6 +24,6 @@ function popupConsultant() {
 			// showGiftBtn();
 		};
 	});
+// }
 }
-
-module.exports = popupConsultant;
+module.exports = showPopup;
