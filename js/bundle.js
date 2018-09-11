@@ -12,6 +12,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	let form = require('./parts/work-form.js');
 	let calc = require('./parts/calc.js');
 	let accord = require('./parts/accordeon.js');
+	let gamburger = require('./parts/gamburger.js');
 
 
 	sliderMain();
@@ -25,8 +26,9 @@ window.addEventListener("DOMContentLoaded", function() {
 	sort();
 	calc();
 	accord();
+	gamburger();
 });
-},{"./parts/accordeon.js":2,"./parts/calc.js":3,"./parts/gift-get.js":4,"./parts/hoverPicture.js":5,"./parts/more-styles.js":6,"./parts/popup-consultation.js":7,"./parts/popup-design.js":8,"./parts/slider-feedback.js":9,"./parts/slider-main.js":10,"./parts/sort.js":11,"./parts/work-form.js":12}],2:[function(require,module,exports){
+},{"./parts/accordeon.js":2,"./parts/calc.js":3,"./parts/gamburger.js":4,"./parts/gift-get.js":5,"./parts/hoverPicture.js":6,"./parts/more-styles.js":7,"./parts/popup-consultation.js":8,"./parts/popup-design.js":9,"./parts/slider-feedback.js":10,"./parts/slider-main.js":11,"./parts/sort.js":12,"./parts/work-form.js":13}],2:[function(require,module,exports){
 function accord() {	
 	let accordLink = document.querySelectorAll('.accordion-heading > span'),
 		accordItem = document.querySelectorAll('.accordion-block'),
@@ -123,6 +125,26 @@ function calc() {
 
 module.exports = calc;
 },{}],4:[function(require,module,exports){
+function gamburger() {	
+	let menuBtn = document.querySelector('.burger'),
+		menu = document.querySelector('.burger-menu');
+
+	window.onresize = function() {
+		width = window.innerWidth;
+
+		if (width < 768) {
+			menuBtn.addEventListener('click', function() {
+				menu.style.display = 'block';
+			});
+		} 
+		if (width > 768) {
+			menu.style.display = 'none';
+		}
+	}
+}
+
+module.exports = gamburger;
+},{}],5:[function(require,module,exports){
 function gift() {
 
 	let giftBtn = document.querySelector('.fixed-gift'),
@@ -181,7 +203,7 @@ function gift() {
 }
 
 module.exports = gift;
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 function hoverPic() {
 	let wrapPicture = document.querySelector('.sizes-wrapper'),
 		img = wrapPicture.getElementsByTagName('img'),
@@ -252,7 +274,7 @@ function hoverPic() {
 }
 
 module.exports = hoverPic;
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 function style() {
 	let btnStyles = document.querySelector('.button-styles'),
 		boxMore = document.getElementsByClassName('styles-2');
@@ -269,7 +291,7 @@ function style() {
 }
 
 module.exports = style;
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 function showPopup() {
 let btnConsultant = document.querySelectorAll('.button-consultation'),
 	consultantModal = document.querySelector('.popup-consultation');
@@ -304,7 +326,7 @@ let btnConsultant = document.querySelectorAll('.button-consultation'),
 // }
 }
 module.exports = showPopup;
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 function popupDesign() {
 	let btnDesign = document.getElementsByClassName('button-design'),
 		designModal = document.querySelector('.popup-design');
@@ -327,7 +349,7 @@ function popupDesign() {
 }
 
 module.exports = popupDesign;
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 // slider feedback
 function sliderFeedback() {
 	function nextAuto() {
@@ -375,7 +397,7 @@ function sliderFeedback() {
 	});
 }
 module.exports = sliderFeedback;
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 // slider main / header
 function sliderMain() {
 	let slideIndex = 0,
@@ -414,7 +436,7 @@ function sliderMain() {
 	},5000);
 }
 module.exports = sliderMain;
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 function sort() {
 	let portfolioBox = document.querySelector('.portfolio-menu'),
 		linkItem = portfolioBox.getElementsByTagName('li'),
@@ -458,7 +480,7 @@ function sort() {
 }
 
 module.exports = sort;
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 function formFooter() {
 	let message = new Object();
 	message.loading = 'Загрузка...';
