@@ -10,6 +10,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	let	sliderMain = require('./parts/slider-main.js');
 	let	sort = require('./parts/sort.js');
 	let form = require('./parts/work-form.js');
+	let calc = require('./parts/calc.js');
 
 
 	sliderMain();
@@ -21,8 +22,68 @@ window.addEventListener("DOMContentLoaded", function() {
 	popupDesign();
 	sliderFeedback();
 	sort();
+	calc();
 });
-},{"./parts/gift-get.js":2,"./parts/hoverPicture.js":3,"./parts/more-styles.js":4,"./parts/popup-consultation.js":5,"./parts/popup-design.js":6,"./parts/slider-feedback.js":7,"./parts/slider-main.js":8,"./parts/sort.js":9,"./parts/work-form.js":10}],2:[function(require,module,exports){
+},{"./parts/calc.js":2,"./parts/gift-get.js":3,"./parts/hoverPicture.js":4,"./parts/more-styles.js":5,"./parts/popup-consultation.js":6,"./parts/popup-design.js":7,"./parts/slider-feedback.js":8,"./parts/slider-main.js":9,"./parts/sort.js":10,"./parts/work-form.js":11}],2:[function(require,module,exports){
+function calc() {
+
+	let size = document.getElementById('size'),
+		material = document.getElementById('material'),
+		options = document.getElementById('options'),
+		promocode = document.querySelector('.promocode'),
+		totalValue = document.querySelector('.calc-price'),
+		sizeSum = 0,
+		materialSum = 0,
+		optionsSum = 0,
+		promocodeCode = 'IWANTPOPART',
+		promocodeCodeSum = 0,
+		total = 0;
+		let a;
+
+	size.addEventListener('change', function () {
+		sizeSum = +this.value;
+		clear();
+	});
+
+	material.addEventListener('change', function () {
+		materialSum = +this.value;
+		clear();
+	});
+
+	options.addEventListener('change', function () {
+		optionsSum = +this.value;
+		if (options.value == 0) {
+			clear();
+		} else {
+			clear();
+		}
+		
+	});
+
+	promocode.addEventListener('change', function() {
+		if (promocode.value == promocodeCode) {
+			promocodeCodeSum = a * 0.3;
+		} 
+		clear();
+	});
+
+	function clear() {
+		if (size.value == 0 || material.value == 0) {
+			totalValue.textContent = ' Укажите материал и размер ';
+		} else if (promocode.value == promocodeCode) {
+				total = sizeSum + materialSum + optionsSum;
+				a = total;
+				totalValue.textContent = total - promocodeCodeSum;
+			} else {
+				total = sizeSum + materialSum + optionsSum;
+				a = total;
+				totalValue.textContent = a;
+			}
+		}
+	}
+
+calc();
+},{}],3:[function(require,module,exports){
 function gift() {
 
 	let giftBtn = document.querySelector('.fixed-gift'),
@@ -81,7 +142,7 @@ function gift() {
 }
 
 module.exports = gift;
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 function hoverPic() {
 	let wrapPicture = document.querySelector('.sizes-wrapper'),
 		img = wrapPicture.getElementsByTagName('img'),
@@ -152,7 +213,7 @@ function hoverPic() {
 }
 
 module.exports = hoverPic;
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 function style() {
 	let btnStyles = document.querySelector('.button-styles'),
 		boxMore = document.getElementsByClassName('styles-2');
@@ -169,7 +230,7 @@ function style() {
 }
 
 module.exports = style;
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 function showPopup() {
 let btnConsultant = document.querySelectorAll('.button-consultation'),
 	consultantModal = document.querySelector('.popup-consultation');
@@ -204,7 +265,7 @@ let btnConsultant = document.querySelectorAll('.button-consultation'),
 // }
 }
 module.exports = showPopup;
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 function popupDesign() {
 	let btnDesign = document.getElementsByClassName('button-design'),
 		designModal = document.querySelector('.popup-design');
@@ -227,7 +288,7 @@ function popupDesign() {
 }
 
 module.exports = popupDesign;
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 // slider feedback
 function sliderFeedback() {
 	function nextAuto() {
@@ -275,7 +336,7 @@ function sliderFeedback() {
 	});
 }
 module.exports = sliderFeedback;
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 // slider main / header
 function sliderMain() {
 	let slideIndex = 0,
@@ -314,7 +375,7 @@ function sliderMain() {
 	},5000);
 }
 module.exports = sliderMain;
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 function sort() {
 	let portfolioBox = document.querySelector('.portfolio-menu'),
 		linkItem = portfolioBox.getElementsByTagName('li'),
@@ -358,7 +419,7 @@ function sort() {
 }
 
 module.exports = sort;
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 function formFooter() {
 	let message = new Object();
 	message.loading = 'Загрузка...';

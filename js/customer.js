@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	let	sliderMain = require('./parts/slider-main.js');
 	let	sort = require('./parts/sort.js');
 	let form = require('./parts/work-form.js');
+	let calc = require('./parts/calc.js');
 
 
 	sliderMain();
@@ -20,4 +21,5 @@ window.addEventListener("DOMContentLoaded", function() {
 	popupDesign();
 	sliderFeedback();
 	sort();
+	calc();
 });
