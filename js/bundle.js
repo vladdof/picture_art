@@ -487,18 +487,24 @@ function formFooter() {
 
 	// find input form
 	let input = document.getElementsByTagName('input'),
-		inputPhone = document.getElementsByName('phone'),
+		// inputPhone = document.getElementsByName('phone'),
+
+        textarea = document.getElementsByTagName('textarea'),
 		// получили форму
-        boxMain = document.querySelectorAll('.main-form'),
-		sub_form = document.getElementsByTagName('form'),
+        boxMain = document.getElementsByClassName('main-form'),
+        sub_form = document.getElementsByTagName('form'),
 		// уведомление об отправке
 		statusMessage = document.createElement('div');
-		statusMessage.classList.add('status');
+        statusMessage.classList.add('status');
+
 
 	for (let i = 0; i < sub_form.length; i++) {
 		sub_form[i].addEventListener('submit', function(event) {
 			event.preventDefault();
-			boxMain[i].appendChild(statusMessage);
+
+            let num = event.target.length;
+
+            showMessage(num);
 
 			let request = new XMLHttpRequest();
 
@@ -511,27 +517,58 @@ function formFooter() {
 
 			request.onreadystatechange = ()=> {
 				if (request.readyState < 4) {
-					statusMessage.innerHTML = "<p>" + message.loading + "</p>";
-                    statusMessage.style.textAlign = 'center';
-                    statusMessage.style.marginTop = '30px';
+					statusMessage.textContent = message.loading;
 				} else if (request.readyState === 4) {
 					if (request.status == 200 && request.status < 300) {
-						statusMessage.innerHTML = "<p>" + message.success + "</p>";
-                        statusMessage.style.textAlign = 'center';
-                        statusMessage.style.marginTop = '30px';
+                        sub_form[i].style.display = 'none';
+						statusMessage.textContent = message.success;
+                        statusMessage.classList.toggle('status-active');
 					} else {
-						statusMessage.innerHTML = "<p>" + message.failure + "</p>";
-                        statusMessage.style.textAlign = 'center';
-                        statusMessage.style.marginTop = '30px';
+                        sub_form[i].style.display = 'none';
+						statusMessage.textContent = message.failure;
+                        statusMessage.classList.toggle('status-active');
 					}
 				}
 			}
 
-			for (let i = 0; i < input.length; i++) {
-				input[i].value = '';
-			}
+            for (let i = 0; i < input.length; i++) {
+                input[i].value = '';
+            }
+            for (let i = 0; i < textarea.length; i++) {
+                textarea[i].value = '';
+            }
+
+            setTimeout(function() {
+                sub_form[i].style.display = 'block';
+                statusMessage.classList.toggle('status-active');
+                statusMessage.textContent = '';
+                hideMessage(num);
+            }, 3000)
 		});
     }; 
+
+    function showMessage(a) {
+        if (a == 3) {
+            boxMain[1].appendChild(statusMessage);
+        }
+        if (a == 7) {
+            boxMain[2].appendChild(statusMessage);
+        }
+        if (a == 5) {
+            boxMain[0].appendChild(statusMessage);
+        }
+    }
+    function hideMessage(a) {
+        if (a == 3) {
+            boxMain[1].removeChild(statusMessage);
+        }
+        if (a == 7) {
+            boxMain[2].removeChild(statusMessage);
+        }
+        if (a == 5) {
+            boxMain[0].removeChild(statusMessage);
+        }
+    }
     // конец отправки
 
 

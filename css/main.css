@@ -1755,10 +1755,14 @@ h4 {
   display: inline-block;
 }
 .status {
+  display: none;
+}
+.status-active {
   text-align: center;
   font-size: 26px;
-  color: pink;
+  color: #009688;
   margin-top: 10px;
+  display: block;
 }
 .activeAccord {
   font-size: 2.7rem !important;
