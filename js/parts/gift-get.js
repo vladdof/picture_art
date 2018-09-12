@@ -5,7 +5,6 @@ function gift() {
 		isClicker = false;
 
 	function hideGift() {
-		giftBtn.style.display = 'flex';
 		giftModal.style.display = 'none';
 	};
 
@@ -50,7 +49,6 @@ function gift() {
 			giftBtn.style.display = 'none';
 		} else {
 		 	giftModal.style.display = 'none';
-		 	giftBtn.style.display = 'flex';
 		}
 	}
 }
