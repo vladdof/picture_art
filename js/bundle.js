@@ -489,6 +489,7 @@ function formFooter() {
 	let input = document.getElementsByTagName('input'),
 		inputPhone = document.getElementsByName('phone'),
 		// получили форму
+        boxMain = document.querySelectorAll('.main-form'),
 		sub_form = document.getElementsByTagName('form'),
 		// уведомление об отправке
 		statusMessage = document.createElement('div');
@@ -497,7 +498,7 @@ function formFooter() {
 	for (let i = 0; i < sub_form.length; i++) {
 		sub_form[i].addEventListener('submit', function(event) {
 			event.preventDefault();
-			sub_form[i].appendChild(statusMessage);
+			boxMain[i].appendChild(statusMessage);
 
 			let request = new XMLHttpRequest();
 
