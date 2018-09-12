@@ -3,7 +3,7 @@ function gamburger() {
 		menu = document.querySelector('.burger-menu');
 
 	window.onresize = function() {
-		width = window.innerWidth;
+		let	width = window.innerWidth;
 
 		if (width < 768) {
 			menuBtn.addEventListener('click', function() {
