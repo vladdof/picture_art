@@ -13,19 +13,19 @@ function sort() {
 			if (linkItem[i].classList.contains(target)) {
 				linkItem[i].classList.add('active');
 
-			  	for (let j=0; j<portfolio.length; j++) {
+				for (let j=0; j<portfolio.length; j++) {
 
-				  	if (portfolio[j].classList.contains(target)) {
-				    	portfolio[j].style.display = 'block';
+					if (portfolio[j].classList.contains(target)) {
+						portfolio[j].style.display = 'block';
 
-				    } else if (target == 'grandmother' || target == 'granddad') {
+					} else if (target == 'grandmother' || target == 'granddad') {
 						no.style.display = 'block';
 						portfolio[j].style.display = 'none';
 
 					}	else {
-				    	portfolio[j].style.display = 'none';
-				    	no.style.display = 'none';
-				    }
+						portfolio[j].style.display = 'none';
+						no.style.display = 'none';
+					}
 				}
 
 			} else {
@@ -34,7 +34,7 @@ function sort() {
 				} else {
 					linkItem[i].classList.remove('active');
 				}
-					
+
 			}
 		}
 	});

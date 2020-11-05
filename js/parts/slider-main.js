@@ -31,8 +31,9 @@ function sliderMain() {
 		plusSlides(1);
 	}
 
-	setInterval(function() { 
-	    nextAuto();
+	setInterval(function() {
+		nextAuto();
 	},5000);
 }
+
 module.exports = sliderMain;

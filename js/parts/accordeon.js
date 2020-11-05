@@ -1,4 +1,4 @@
-function accord() {	
+function accord() {
 	let accordLink = document.querySelectorAll('.accordion-heading > span'),
 		accordItem = document.querySelectorAll('.accordion-block'),
 		accordBox = document.getElementById('accordion');
@@ -8,7 +8,7 @@ function accord() {
 
 		if (target.tagName == 'SPAN') {
 			for (let i = 0; i < accordLink.length; i++) {
-				
+
 				hideAccord(i);
 				if (target == accordLink[i]) {
 					accordLink[i].classList.add('activeAccord');
@@ -16,7 +16,7 @@ function accord() {
 					showAccord(i);
 					break;
 				}
-			} 
+			}
 		}
 	});
 

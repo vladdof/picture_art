@@ -31,24 +31,24 @@ function gift() {
 	let buttonAll = document.getElementsByTagName('button');
 
 		for (let i = 0; i < buttonAll.length; i++) {
-			buttonAll[i].onclick = function () {
+			buttonAll[i].onclick = function() {
 				isClicker = true;
 			}
 		}
 
 	window.onscroll = function() {
 		// размер скролла
-	  let scrolled = window.pageYOffset || document.documentElement.scrollTop,
-	  	// высота окна
-	  	  heightWindow = window.innerHeight || document.documentElement.clientHeight,
-	  	// высота всего документа
-	  	  heightDocument = document.body.clientHeight;
+		let scrolled = window.pageYOffset || document.documentElement.scrollTop,
+			// высота окна
+			heightWindow = window.innerHeight || document.documentElement.clientHeight,
+			// высота всего документа
+			heightDocument = document.body.clientHeight;
 
 		if ( scrolled+heightWindow >= heightDocument && isClicker == false) {
 			giftModal.style.display = 'flex';
 			giftBtn.style.display = 'none';
 		} else {
-		 	giftModal.style.display = 'none';
+			giftModal.style.display = 'none';
 		}
 	}
 }

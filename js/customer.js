@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener('DOMContentLoaded', function() {
 
 	let gift = require('./parts-babel/gift-get.js');
 	let	hoverPic = require('./parts-babel/hoverPicture.js');

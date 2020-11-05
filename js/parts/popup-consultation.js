@@ -1,6 +1,6 @@
 function showPopup() {
-let btnConsultant = document.querySelectorAll('.button-consultation'),
-	consultantModal = document.querySelector('.popup-consultation');
+	let btnConsultant = document.querySelectorAll('.button-consultation'),
+		consultantModal = document.querySelector('.popup-consultation');
 
 	setTimeout(function() {
 		if (document.querySelector('.popup-design').style.display == 'flex' || document.querySelector('.popup-gift').style.display == 'flex') {
@@ -8,14 +8,12 @@ let btnConsultant = document.querySelectorAll('.button-consultation'),
 		} else {
 			consultantModal.style.display = 'flex';
 		}
-		
 	}, 60000)
-	
 
 // function popupConsultant() {
 
 	for (let i = 0; i < btnConsultant.length; i++) {
-		btnConsultant[i].addEventListener('click', ()=> {
+		btnConsultant[i].addEventListener('click', () => {
 			consultantModal.style.display = 'flex';
 			// hideGiftBtn();
 		});
@@ -31,4 +29,5 @@ let btnConsultant = document.querySelectorAll('.button-consultation'),
 	});
 // }
 }
+
 module.exports = showPopup;

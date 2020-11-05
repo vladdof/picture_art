@@ -1,4 +1,4 @@
-function gamburger() {	
+function gamburger() {
 	let menuBtn = document.querySelector('.burger'),
 		menu = document.querySelector('.burger-menu');
 
@@ -9,7 +9,7 @@ function gamburger() {
 			menuBtn.addEventListener('click', function() {
 				menu.style.display = 'block';
 			});
-		} 
+		}
 		if (width > 768) {
 			menu.style.display = 'none';
 		}

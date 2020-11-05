@@ -3,10 +3,10 @@ function sliderFeedback() {
 	function nextAuto() {
 		plusSlides(1);
 	}
-	
-    setInterval(function() { 
-        nextAuto();
-    },5000);
+
+	setInterval(function() {
+		nextAuto();
+	},5000);
 
 	let slideIndex = 0,
 		boxSlider = document.querySelector('.feedback-slider-box'),
@@ -17,7 +17,6 @@ function sliderFeedback() {
 	showSlidesF(slideIndex);
 	// show 1 slide
 	function showSlidesF(n) {
-
 		// return to first after scrolling to last
 		if (n > slidesF-1) {
 			slideIndex = 0;
@@ -37,11 +36,12 @@ function sliderFeedback() {
 		showSlidesF(slideIndex += n);
 	}
 
-	prevF.addEventListener('click', ()=> {
+	prevF.addEventListener('click', () => {
 		plusSlides(-1);
 	});
-	nextF.addEventListener('click', ()=> {
+	nextF.addEventListener('click', () => {
 		plusSlides(1);
 	});
 }
+
 module.exports = sliderFeedback;
